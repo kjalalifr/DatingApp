@@ -12,8 +12,9 @@ using System;
 
 namespace DatingApp.API.Controllers
 {
+    
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _repo;
@@ -36,7 +37,7 @@ namespace DatingApp.API.Controllers
 
             var userToCreate = new User
             {
-                UserName = userForRegister.Username
+                Username = userForRegister.Username
             };
 
             var createUser = await _repo.Register(userToCreate, userForRegister.Password);
@@ -56,7 +57,7 @@ namespace DatingApp.API.Controllers
             var claims = new[]
 {
                 new Claim(ClaimTypes.NameIdentifier,userFromRepo.Id.ToString()),
-                new Claim(ClaimTypes.Name,userFromRepo.UserName)
+                new Claim(ClaimTypes.Name,userFromRepo.Username)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8

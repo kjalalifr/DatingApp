@@ -33,7 +33,7 @@ export class MemberDetailComponent implements OnInit {
         thumbnailsColumns: 4,
         imageAnimation: NgxGalleryAnimation.Slide,
         preview: false
-      }      
+      }
     ];
 
     this.galleryImages = this.getImages();
@@ -49,8 +49,8 @@ export class MemberDetailComponent implements OnInit {
         big: this.user.photos[i].url,
         description: this.user.photos[i].description
       });
-      return imageUrls;
     }
+    return imageUrls;
   }
 
 }
